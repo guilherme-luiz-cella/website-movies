@@ -1,0 +1,323 @@
+/* Netflix-style Movie List Styles */
+
+/* Header Styles */
+.header-container {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7) 10%,
+        rgba(0, 0, 0, 0)
+    );
+}
+
+.header-scrolled {
+    background-color: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Hero Banner */
+.hero-section {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+}
+
+.hero-overlay-left {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        #141414,
+        rgba(20, 20, 20, 0.6),
+        transparent
+    );
+}
+
+.hero-overlay-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #141414, transparent, transparent);
+}
+
+.hero-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.4;
+}
+
+.hero-gradient-bg {
+    background: linear-gradient(
+        135deg,
+        rgba(153, 27, 27, 0.2),
+        rgba(0, 0, 0, 1)
+    );
+}
+
+/* Stats Bar */
+.stats-bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* Movie Card Styles */
+.movie-card {
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        z-index 0s 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    transition:
+        transform 0.3s ease,
+        z-index 0s 0s;
+}
+
+.poster-container {
+    aspect-ratio: 2/3;
+    background-color: #27272a;
+    position: relative;
+    overflow: hidden;
+}
+
+.poster-image {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.movie-card:hover .poster-image {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.status-badge {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #dc2626;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #b91c1c;
+}
+
+.btn-secondary {
+    background-color: rgba(107, 114, 128, 0.8);
+    transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(107, 114, 128);
+}
+
+.btn-toggle,
+.btn-delete {
+    transition: all 0.2s ease;
+}
+
+.btn-toggle:hover {
+    background-color: #e5e7eb;
+}
+
+.btn-delete:hover {
+    background-color: #b91c1c;
+}
+
+/* Empty State */
+.empty-state {
+    min-height: 400px;
+}
+
+.empty-state svg {
+    opacity: 0.3;
+}
+
+/* Alert/Notification */
+.alert-success {
+    background-color: rgba(5, 150, 105, 0.2);
+    border: 1px solid rgba(5, 150, 105, 0.4);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: #a7f3d0;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation Links */
+.nav-link {
+    position: relative;
+    padding-bottom: 0.25rem;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #dc2626;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Responsive Grid */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .movies-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 768px) {
+    .movies-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .movies-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    .movies-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+/* Loading State */
+.loading-skeleton {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+}
+
+/* ============================================
+   FORM STYLES - CREATE/EDIT PAGES
+   ============================================ */
+
+/* Error Message */
+.alert-error {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Form Card */
+.form-card {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Fields */
+.input-field {
+    transition: all 0.2s ease;
+}
+
+.input-field:hover {
+    border-color: #52525b;
+}
+
+.input-field::placeholder {
+    color: #71717a;
+}
+
+/* Suggestions Dropdown */
+.suggestions-container {
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 50;
+    animation: fadeIn 0.2s ease;
+}
+
+.suggestion-item {
+    cursor: pointer;
+}
+
+.suggestion-item:hover img {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+/* Focus States for Accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+}
+
+/* Loader Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
